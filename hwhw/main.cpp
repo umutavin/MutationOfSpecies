@@ -3,6 +3,7 @@
 //  Student ID : 150140018
 //  Copyright © 2018 avin. All rights reserved.
 
+#include <iostream>
 #include "grayling.cpp"
 
 using namespace std;

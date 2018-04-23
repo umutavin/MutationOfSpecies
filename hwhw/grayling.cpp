@@ -1,10 +1,8 @@
-//
-//  grayling.cpp
-//  hwhw
-//
-//  Created by Umut Avin on 23.04.2018.
+//  @Author
+//  Created by Umut Cem Avin on 21.04.2018.
+//  Student ID : 150140018
 //  Copyright © 2018 avin. All rights reserved.
-//
+
 #include "grayling.h"
 #include <iostream>
 
@@ -98,6 +96,7 @@ void Grayling2::givebirth() {
     Grayling::givebirth();
     
 }
+
 void Grayling2::aging(){
     motateto = "Grayling3";
     Grayling::aging();
@@ -116,5 +115,3 @@ void Grayling3::givebirth(){
 void Grayling3::aging(){
     Grayling::aging();
 }
-
-
