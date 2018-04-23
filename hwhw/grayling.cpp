@@ -6,12 +6,19 @@
 #include "grayling.h"
 #include <iostream>
 
+//Prints attributes of the grayling
+//"const" is used to prevent changes in the function
 void Grayling::print() const{
     cout << " -> Age: " << age << " Nname: " << name << " G: " << gender
     << " MPI: " << MPI << " MP: " << MP << " Mutate at: " << nextMP << endl;
 }
 
 void Grayling::givebirth(){
+    /*
+     Conditional statements to differ graylings by considering their life status,
+     gender and offspring number. These values show us their availability for
+     giving birth.
+    */
     if(isAlive == 0){
         if(offsCounter >=maxOffspring)
             cout << "- Trying to GIVE BIRTH BUT " << name <<
@@ -31,8 +38,17 @@ void Grayling::givebirth(){
             " has no ability to give birth!" << endl;
         }
     }
+    else if(gender == 'm' && isAlive == 1)
+        cout << "- Trying to GIVE BIRTH BUT " << name <<
+        " has no ability to give birth!" << endl;
 }
 
+/*
+ Conditional statements to know whether the grayling can age. Life status,
+ mutation possibility(MP) and maximum age values are considered.
+ According to their aging; mutation possibility(MP), mutation possibility
+ increasing(MPI), isAlive and isMutant values are recalculated.
+ */
 void Grayling::aging(){
     if(isAlive == 0){
         cout << "- Trying to AGING BUT " << name << " is not alive" << endl;
@@ -70,48 +86,59 @@ void Grayling::aging(){
         }
     }
 }
+//Derived classes' functions
 
+//Derived print function for Grayling1 class.
 void Grayling1::print() const{
     cout << "- Grayling 1";
     Grayling::print();
 }
 
+//Derived givebirth function for Grayling1 class.
 void Grayling1::givebirth() {
     maxOffspring = 2;
     Grayling::givebirth();
     
 }
+
+//Derived aging function for Grayling1 class.
 void Grayling1::aging(){
     motateto = "Grayling2";
     Grayling::aging();
 }
 
+//Derived print function for Grayling2 class.
 void Grayling2::print() const{
     cout << "- Grayling 2";
     Grayling::print();
 }
 
+//Derived givebirth function for Grayling2 class.
 void Grayling2::givebirth() {
     maxOffspring = 1;
     Grayling::givebirth();
     
 }
 
+//Derived aging function for Grayling2 class.
 void Grayling2::aging(){
     motateto = "Grayling3";
     Grayling::aging();
 }
 
+//Derived print function for Grayling3 class.
 void Grayling3::print() const{
     cout << "- Grayling 3";
     Grayling::print();
 }
 
+//Derived givebirth function for Grayling3 class.
 void Grayling3::givebirth(){
     maxOffspring = 0;
     Grayling::givebirth();
 }
 
+//Derived aging function for Grayling3 class.
 void Grayling3::aging(){
     Grayling::aging();
 }

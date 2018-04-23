@@ -13,15 +13,20 @@ using namespace std;
 
 class Grayling{
 public:
-    Grayling(){isAlive=0;};
-    Grayling(char, string);
-    Grayling(const Grayling &g2, char, string);
+    //Methods
+    Grayling(){isAlive=0;}; //Default Constructor
+    Grayling(char, string); //Constructor
+    Grayling(const Grayling &g2, char, string); //Copy Constructor
+    /*
+     These functions are virtual so that we can make certain operations in
+     our base class for other Grayling classes.
+    */
     virtual void print() const;
     virtual void givebirth();
     virtual void aging();
     virtual ~Grayling() {};
-    
 protected:
+    //Attributes
     short age;
     string name;
     char gender;
@@ -31,11 +36,12 @@ protected:
     double MPI;
     double MP;
     double nextMP;
-    int offsCounter;
-    int deathAge;
-    int maxOffspring;
+    int offsCounter; // Counts offsprings
+    int deathAge;   // Grayling's death age
+    int maxOffspring; // Grayling's possible offspring number
 };
 
+//Constructor
 Grayling::Grayling(char gGender, string gName){
     name = gName;
     gender = gGender;
@@ -45,7 +51,7 @@ Grayling::Grayling(char gGender, string gName){
     MP = 0;
     offsCounter = 0;
 }
-
+//Copy Constructor
 Grayling::Grayling(const Grayling &g2, char gGender, string gName){
     name = gName;
     gender = gGender;
@@ -56,15 +62,17 @@ Grayling::Grayling(const Grayling &g2, char gGender, string gName){
     offsCounter = g2.offsCounter;
 }
 
+//Grayling1 class which is derived from abstract base class Grayling
 class Grayling1 : public Grayling{
 public:
+    //Grayling1's constructor
     Grayling1(char gGender, string gName) : Grayling(gGender, gName){
         MPI = 30;
         nextMP = 60;
         motateto = "Grayling 1";
         deathAge = 5;
     }
-    
+    //Grayling1's copy constructor
     Grayling1(const Grayling &g2, char gGender, string gName) :
     Grayling(g2, gGender, gName){
         MPI = 30;
@@ -79,8 +87,10 @@ public:
     
 };
 
+//Grayling2 class which is derived from abstract base class Grayling
 class Grayling2 : public Grayling{
 public:
+    //Grayling2's constructor
     Grayling2(char gGender, string gName) :
     Grayling(gGender, gName){
         MPI = 40;
@@ -88,6 +98,7 @@ public:
         motateto = "Grayling 2";
         deathAge = 4;
     }
+    //Grayling2's copy constructor
     Grayling2(const Grayling &g2, char gGender, string gName) :
     Grayling(g2, gGender, gName){
         MPI = 40;
@@ -102,8 +113,10 @@ public:
     
 };
 
+//Grayling3 class which is derived from abstract base class Grayling
 class Grayling3 : public Grayling{
 public:
+    //Grayling3's constructor
     Grayling3(char gGender, string gName) :
     Grayling(gGender, gName){
         MPI = 50;
@@ -111,7 +124,7 @@ public:
         motateto = "Grayling 3";
         deathAge = 3;
     }
-    
+    //Grayling2's copy constructor
     Grayling3(const Grayling &g2, char gGender, string gName) :
     Grayling(g2, gGender, gName){
         MPI = 50;
