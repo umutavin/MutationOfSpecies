@@ -6,8 +6,6 @@
 #include <iostream>
 #include "grayling.cpp"
 
-using namespace std;
-
 void show(Grayling *g){
     g->print();
 }
@@ -52,5 +50,4 @@ int main(){
     aging(&G3_1);
     
     return 0;
-    
 }
